@@ -16,11 +16,7 @@ app.use(express.methodOverride())
 app.use(express.cookieParser('I am a very very secret key and will remain so'))
 app.use(express.session())
 app.use(app.router)
-app.use(require('node-sass').middleware
-    src: "#{__dirname}/public"
-    dest: "#{__dirname}/public"
-    debug: true
-)
+app.use(require('stylus').middleware("#{__dirname}/public"))
 app.use(express.static(path.join(__dirname, 'public')))
 
 # development only
