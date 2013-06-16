@@ -13,10 +13,14 @@ app.use(express.favicon())
 app.use(express.logger('dev'))
 app.use(express.bodyParser())
 app.use(express.methodOverride())
-app.use(express.cookieParser('your secret here'))
+app.use(express.cookieParser('I am a very very secret key and will remain so'))
 app.use(express.session())
 app.use(app.router)
-app.use(require('stylus').middleware(__dirname + '/public'))
+app.use(require('node-sass').middleware
+    src: "#{__dirname}/public"
+    dest: "#{__dirname}/public"
+    debug: true
+)
 app.use(express.static(path.join(__dirname, 'public')))
 
 # development only
@@ -28,4 +32,4 @@ app.get('/', routes.index)
 app.get('/users', user.list)
 
 http.createServer(app).listen app.get('port'), () ->
-    console.log('Express server listening on port ' + app.get('port'));
+    console.log("Express server listening on #{app.get('port')}")
