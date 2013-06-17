@@ -10,6 +10,8 @@
     "jade": "0.31.x",
     "stylus": "0.32.x",
     "coffee-script": "1.6.x",
-    "mongoose": "3.6.x"
+    "mongoose": "3.6.x",
+    "github": "0.1.10",
+    "everyauth": "0.4.x"
   }
 }
