@@ -11,6 +11,6 @@ module.exports = (everyauth) ->
             User = mongoose.model "User"
             session.user_id = githubUserData.login
             user = User.where("username").equals(githubUserData.login)
-            new User({username: githubUserData.login, email: githubUserData.email, accessToken: accessToken} ).save() unless user
+            user = new User({username: githubUserData.login, email: githubUserData.email, accessToken: accessToken} ).save() unless user
             user
         ).redirectPath('/');
