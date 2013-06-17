@@ -1,5 +1,6 @@
 path = require 'path'
 express = require 'express'
+everyauth = require 'everyauth'
 
 module.exports = (app) ->
     app.set 'port', process.env.PORT || 3000
@@ -14,6 +15,7 @@ module.exports = (app) ->
     app.use app.router
     app.use require('stylus').middleware("#{__dirname}/public")
     app.use express.static(path.join(__dirname, 'public'))
+    app.use everyauth.middleware(app)
     # development only
     if ('development' == app.get('env'))
         app.use(express.errorHandler())

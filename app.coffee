@@ -1,7 +1,8 @@
 express = require 'express'
-routes = require './routes'
 http = require 'http'
 mongoose = require 'mongoose'
+everyauth = require 'everyauth'
+require('./config/everyauth')(everyauth)
 
 app = express()
 
