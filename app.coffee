@@ -1,19 +1,23 @@
 express = require 'express'
 routes = require './routes'
-user = require './routes/user'
 http = require 'http'
+mongoose = require 'mongoose'
 
 app = express()
+
+mongoose.connect 'mongodb://localhost/refactor_me_development', {db:{safe:true}}, (err) ->
+    if err?
+        console.log "Connection Error: #{err}"
+        process.exit(1)
 
 #Setup the application
 require('./config/setup')(app)
 
-# development only
-if ('development' == app.get('env'))
-    app.use(express.errorHandler())
+#Get the models
+require('./models/user')
 
-app.get('/', routes.index)
-app.get('/users', user.list)
+#Setup our routes
+require('./config/routes')(app)
 
 http.createServer(app).listen app.get('port'), () ->
     console.log("Express server listening on #{app.get('port')}")
