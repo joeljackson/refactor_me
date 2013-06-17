@@ -9,6 +9,7 @@
     "express": "3.2.6",
     "hjs": "*",
     "node-sass": "*",
-    "coffee-script": "1.6.x"
+    "coffee-script": "1.6.x",
+    "mongoose": "3.6.x"
   }
 }

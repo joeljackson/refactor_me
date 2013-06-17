@@ -1,0 +1,14 @@
+{
+  "development":{"username":"root",
+  "password":null,
+  "database":"refactor_me_development",
+  "host":"127.0.0.1"
+},
+  "test":{"username":"root",
+  "password":null,
+  "database":"refactor_me_test",
+  "host":"127.0.0.1"},
+  "production":{"username":"root",
+  "password":null,
+  "database":"refactor_me_production",
+  "host":"127.0.0.1"}}
